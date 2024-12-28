@@ -1,0 +1,38 @@
+name: Build and publish release index
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build release index
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+
+      - name: Build release index
+        run: |
+          pipx run ./release_index.py generate-index ./build_output/
+
+      - name: Upload static files as artifact
+        id: deployment
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build_output/
+
+  deploy:
+    name: Deploy release index to GH Pages
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

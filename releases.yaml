@@ -1,0 +1,118 @@
+---
+# WARNING:
+# The contents of this file are entirely experimental, may change at any time,
+# and SHOULD NOT be depended on in any way.
+#
+# The files generated from this YAML file (e.g. JSON files hosted on GH Pages)
+# are also entirely experimental, may change at any time,
+# and SHOULD NOT be depended on in any way.
+releases:
+  2024.12.28.1:
+    jar_version: 3.7.12+red.1
+    yt_plugin_version: 1.11.3
+    java_versions: [11, 17]
+    min_red_version: 3.5.14
+    release_stream: preview
+  2024.12.22.1:
+    jar_version: 3.7.12+red.1
+    yt_plugin_version: 1.11.2
+    java_versions: [11, 17]
+    min_red_version: 3.5.13
+    release_stream: stable
+    application_yml_overrides: &OVERRIDES_2024_12_9_1
+      plugins:
+        youtube:
+          clients:
+            - MUSIC
+            - WEB
+            - WEBEMBEDDED
+            - MWEB
+            - TVHTML5EMBEDDED
+            - TV
+            - IOS
+          MUSIC:
+            playback: false
+            playlistLoading: false
+            searching: true
+            videoLoading: false
+          MWEB:
+            playback: true
+            playlistLoading: true
+            searching: false
+            videoLoading: false
+          TV:
+            playback: true
+            playlistLoading: false
+            searching: false
+            videoLoading: false
+          TVHTML5EMBEDDED:
+            playback: true
+            playlistLoading: false
+            searching: false
+            videoLoading: false
+          WEB:
+            playback: true
+            playlistLoading: true
+            searching: false
+            videoLoading: false
+          WEBEMBEDDED:
+            playback: true
+            playlistLoading: false
+            searching: false
+            videoLoading: false
+  2024.12.10.1:
+    jar_version: 3.7.12+red.1
+    yt_plugin_version: 1.11.1
+    java_versions: [11, 17]
+    min_red_version: 3.5.13
+    release_stream: preview
+    application_yml_overrides: *OVERRIDES_2024_12_9_1
+  2024.12.9.1:
+    jar_version: 3.7.12+red.1
+    yt_plugin_version: 1.11.0
+    java_versions: [11, 17]
+    min_red_version: 3.5.13
+    release_stream: preview
+    application_yml_overrides: *OVERRIDES_2024_12_9_1
+  2024.12.5.1:
+    jar_version: 3.7.12+red.1
+    yt_plugin_version: 1.10.2
+    java_versions: [11, 17]
+    min_red_version: 3.5.13
+    release_stream: preview
+    application_yml_overrides: &OVERRIDES_2024_11_15_1
+      plugins:
+        youtube:
+          clients:
+            - MUSIC
+            - WEB
+            - WEBEMBEDDED
+            - ANDROID_TESTSUITE
+            - TVHTML5EMBEDDED
+            - MEDIA_CONNECT
+            - IOS
+  2024.11.15.1:
+    jar_version: 3.7.12+red.1
+    yt_plugin_version: 1.8.3
+    java_versions: [11, 17]
+    min_red_version: 3.5.13
+    release_stream: preview
+    application_yml_overrides: *OVERRIDES_2024_11_15_1
+  2024.8.26.1:
+    jar_version: 3.7.12+red.1
+    yt_plugin_version: 1.7.2
+    java_versions: [11, 17]
+    min_red_version: 3.5.11
+    release_stream: stable
+  2024.8.7.1:
+    jar_version: 3.7.11+red.3
+    yt_plugin_version: 1.5.2
+    java_versions: [11, 17]
+    min_red_version: 3.5.11
+    release_stream: stable
+  2024.8.4.1:
+    jar_version: 3.7.11+red.3
+    yt_plugin_version: 1.5.1
+    java_versions: [11, 17]
+    min_red_version: 3.5.11
+    release_stream: stable
