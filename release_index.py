@@ -236,7 +236,10 @@ def parse_releases() -> list[ReleaseInfo]:
 
     errors = []
     parsed_releases = []
-    previous_release: ReleaseInfo | None = None
+    previous_releases: dict[ReleaseStream, ReleaseInfo | None] = {
+        ReleaseStream.STABLE: None,
+        ReleaseStream.PREVIEW: None,
+    }
 
     for name, release_data in releases.items():
         print(f"Processing {name!r}...")
@@ -245,13 +248,16 @@ def parse_releases() -> list[ReleaseInfo]:
         except ValueError as exc:
             errors.append(str(exc))
             continue
+        previous_release = previous_releases[info.release_stream]
         if previous_release is not None:
             if previous_release.min_red_version != info.min_red_version:
                 info.max_red_version = previous_release.min_red_version
             else:
                 info.max_red_version = previous_release.max_red_version
         parsed_releases.append(info)
-        previous_release = info
+        previous_releases[info.release_stream] = info
+        if info.release_stream is ReleaseStream.STABLE:
+            previous_releases[ReleaseStream.PREVIEW] = info
 
     if errors:
         raise ValueError("\n".join(f"- {err}" for err in errors))
