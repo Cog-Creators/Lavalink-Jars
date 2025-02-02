@@ -7,6 +7,12 @@
 # are also entirely experimental, may change at any time,
 # and SHOULD NOT be depended on in any way.
 releases:
+  2025.01.31.1:
+    jar_version: 3.7.12+red.1
+    yt_plugin_version: 1.11.4
+    java_versions: [11, 17]
+    min_red_version: 3.5.14
+    release_stream: preview
   2024.12.28.1:
     jar_version: 3.7.12+red.1
     yt_plugin_version: 1.11.3
